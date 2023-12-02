@@ -1,0 +1,11 @@
+version: '3'
+services:
+  worker:
+    image: myoung34/github-runner
+    container_name: github-actions-runner
+    environment:
+      REPO_URL: ${REPO_URL}
+      ACCESS_TOKEN: ${ACCESS_TOKEN}
+      RUNNER_NAME_PREFIX: ${RUNNER_NAME_PREFIX:-github-actions-runner}
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
